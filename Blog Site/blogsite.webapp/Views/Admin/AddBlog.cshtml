@@ -1,0 +1,55 @@
+@model BlogModel
+
+@{
+    ViewData["Title"] = "Blog Ekle";
+}
+
+<div class="container my-5">
+    <div>
+        <div class="my-5">
+            <h1 class="text-center"><i class="fa-solid fa-plus fa-beat fa-2xl me-5"></i><span>Blog Ekle</span></h1>
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card bg-light mb-3" style="width: 50rem; min-width: 30px">
+                    <div class="card-header text-center text-white bg-dark"><h5>Blog Bilgileri</h5></div>
+                    <div class="card-body">
+                        <form asp-controller="Admin" asp-action="AddBlog" method="post" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="ImageUrl" value="0">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Resim Seç</label>
+                                <input class="form-control" type="file" name="file" required>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Title" class="form-label">Blog Başlığı</label>
+                                <input class="form-control" asp-for="Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Content" class="form-label">Blog İçeriği</label>
+                                <textarea class="form-control" asp-for="Content" style="min-height: 200px;"></textarea>
+                                <span asp-validation-for="Content" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="CategoryId" class="form-label">Kategori Seç</label>
+                                <select class="form-select" asp-for="CategoryId">
+                                    <option selected>Seçiniz</option>
+                                    @foreach(var category in ViewBag.Categories)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-outline-dark" type="submit">Ekle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

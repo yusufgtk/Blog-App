@@ -1,0 +1,61 @@
+@model BlogModel
+@{
+    ViewData["Title"]=Model.Title;
+}
+
+<div class="container my-5">
+    <div>
+        <h1 class="text-dark my-5">@Model.Title</h1>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-9">
+                <div>
+                    <div class="mb-5">
+                        <img src="~/Images/@Model.ImageUrl" alt="" style="width: 100%;">
+                    </div>
+                    <div class="mb-5">
+                        <p class="text-dark fs-5" style="text-align: justify;">@Model.Content</p>
+                    </div>
+                    <div class="mb-2">
+                        <i class="fa-solid fa-calendar-days me-2"></i><span>@Model.CreatedAt tarihinde yayınlandı.</span>
+                    </div>
+                    <div class="mb-5">
+                        <i class="fa-solid fa-eye me-2"></i><span>@Model.NumberOfClicks adet görüntülendi.</span>
+                    </div>
+                    <div class="mb-2 ">
+                        <div class="mb-5 mt-5"><h6 class="text-center">Sosyal medyada paylaş</h6></div>
+                        <div class="w-100 d-flex justify-content-around">
+                            <div class="">
+                                <a style="width: 30px;" href="https://www.facebook.com/sharer/sharer.php?u=https://www.example.com&quote=Merhaba,%20bu%20bir%20örnek%20paylaşım." class="nav-link" target="_blank"><i class="fa-brands fa-facebook" style="color: #1361e7;"></i></a>
+                            </div>
+                            <div class="">
+                                <a style="width: 30px;" href="https://www.instagram.com/accounts/emailsignin/" class="nav-link" target="_blank"><i class="fa-brands fa-instagram fa-lg" style="color: #b5124b;"></i></a>
+                            </div>
+                            <div class="">
+                                <a style="width: 30px;" href="whatsapp://send?text=Merhaba,%20bu%20bir%20örnek%20metin%20paylaşımıdır." class="nav-link" data-action="share/whatsapp/share"><i class="fa-brands fa-whatsapp" style="color: #057a0d;"></i></a>
+                            </div>
+                            <div class="">
+                                <a style="width: 30px;" href="https://www.tiktok.com/" class="nav-link" target="_blank"><i class="fa-brands fa-tiktok" style="color: #000000;"></i></a>
+                            </div>
+                            <div class="">
+                                <a href="https://twitter.com/KullaniciAdi/status/123456789" class="nav-link" target="_blank"><i class="fa-brands fa-x-twitter" style="color: #00060f;"></i></a>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <ul class="list-group">
+                    @foreach(var category in @ViewBag.Categories)
+                    {
+                        <li class="list-group-item bg-dark">
+                            <a href="/blog/bloglist/@category.Id" class="text-decoration-none text-white">@category.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

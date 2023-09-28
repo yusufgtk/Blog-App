@@ -1,0 +1,45 @@
+@model UserModel
+@{
+    ViewData["Title"]="Hesap Ayarları";
+}
+
+<div class="container my-5">
+    <div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card text-bg-light mb-3" style="max-width: 50rem;min-width: 25rem;">
+                    <div class="card-header bg-warning text-dark text-center py-2"><h5>Kullanıcı Bilgileri</h5></div>
+                    <div class="card-body bg-dark">
+                        <form asp-controller="Account" asp-action="AccountSettings" method="post">
+                            <div class="mb-3 d-flex justify-content-center">
+                                <div>
+                                    <img src="~/Images/@(Model.UserName).jpg" alt="" class="border border-2 rounded-circle" style="height: 150px; widht:150px;">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="FirstName" class="form-label text-white">Ad</label>
+                                <input class="form-control" asp-for="FirstName" readonly>
+                                <span asp-validation-for="FirstName" class="text-warning"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="LastName" class="form-label text-white">Soyad</label>
+                                <input class="form-control" asp-for="LastName" readonly>
+                                <span asp-validation-for="LastName" class="text-warning"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="UserName" class="form-label text-white">Kullanıcı Adı</label>
+                                <input class="form-control" asp-for="UserName" readonly>
+                                <span asp-validation-for="UserName" class="text-warning"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="EmailAddress" class="form-label text-white">Email adres</label>
+                                <input class="form-control" asp-for="EmailAddress" readonly>
+                                <span asp-validation-for="EmailAddress" class="text-warning"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

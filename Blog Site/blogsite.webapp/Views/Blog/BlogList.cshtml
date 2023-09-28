@@ -1,0 +1,49 @@
+@model List<BlogModel>
+
+@{
+    ViewData["Title"] = "Bloglar";
+}
+
+<div class="container my-5">
+    <div>
+        <div class="my-5">
+            <h1 class="text-center"><span>Bloglar</span></h1>
+        </div>
+    </div>
+    <div class="my-5">
+        <form class="d-flex" role="search" asp-controller="Blog" asp-action="BlogList" method="post">
+            <input class="form-control me-2 border borde-3 border-dark" name="search" type="search" placeholder="Blog ara..." aria-label="Search">
+            <button class="btn btn-lg btn-outline-dark" type="submit"><i class="fa-brands fa-searchengin fa-lg me-2 d-inline"></i><span>Ara</span></button>
+        </form>
+    </div>
+    @if(Model.Count()==0)
+    {
+        <div class="text-center my-5">
+            <h3>Blog yok</h3>
+        </div>
+    }
+    <div class="my-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-9">
+                <div class="row">
+                    @foreach(var blog in Model)
+                    {
+                        <div class="col-12 mb-5">
+                            @Html.Partial("_BlogCard", blog)
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3" >
+                <ul class="list-group">
+                    @foreach(var category in ViewBag.Categories)
+                    {
+                        <li class="list-group-item bg-dark">
+                            <a asp-controller="Blog" asp-action="BlogList" asp-route-categoryId="@category.Id" class="text-decoration-none text-white">@category.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

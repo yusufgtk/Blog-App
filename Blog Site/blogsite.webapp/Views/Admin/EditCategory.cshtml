@@ -1,0 +1,35 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Kategori Düzenle";
+}
+
+<div class="container my-5">
+    <div>
+        <div class="my-5">
+            <h1 class="text-center"><i class="fa-solid fa-pen-to-square fa-beat fa-2xl me-5"></i><span>Kategori Düzenle</span></h1>
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card bg-light mb-3" style="width: 50rem; min-width: 30px">
+                    <div class="card-header text-center text-white bg-dark"><h5>Kategori Bilgileri</h5></div>
+                    <div class="card-body">
+                        <form asp-controller="Admin" asp-action="EditCategory" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="Id" value="@Model.Id">
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label">Kategori Adı</label>
+                                <input class="form-control" asp-for="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-outline-dark" type="submit">Güncelle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

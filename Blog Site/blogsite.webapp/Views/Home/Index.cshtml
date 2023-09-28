@@ -1,0 +1,45 @@
+﻿@model List<BlogModel>
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    var Alert=TempData["Alert"];
+    
+}
+
+<div class="container my-5">
+    @if(@TempData["Message"]!=null)
+    {
+        <div class="alert @Alert" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+    <div class="mb-5">
+        @Html.Partial("_Header", Model)
+    </div>
+    <div class="mb-3">
+        <h1 class="h1 text-dark d-inline me-3">En çok Tıklanan Bloglar</h1><i class="fa-solid fa-turn-down fa-bounce fa-2xl"></i>
+    </div>
+    <div class="my-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-9">
+                <div class="row">
+                    @foreach(var blog in Model)
+                    {
+                        <div class="col-12 mb-5">
+                            @Html.Partial("_BlogCard", blog)
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3" >
+                <ul class="list-group">
+                    @foreach(var category in @ViewBag.Categories)
+                    {
+                        <li class="list-group-item bg-dark">
+                            <a asp-controller="Blog" asp-action="BlogList" asp-route-categoryId="@category.Id" class="text-decoration-none text-white">@category.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-dark p-3">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="/">BlogMan</a>
+        <button class="navbar-toggler btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars fa-lg"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="/">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-controller="Blog" asp-action="BlogList">Bloglar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-controller="News" asp-action="NewsList">Haberler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-controller="Home" asp-action="AboutUs">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-controller="Home" asp-action="Contact">İletişim</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto me-2 mb-2 mb-lg-0">
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="btn btn-success dropdown-toggle p-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="d-inline me-2"><img src="~/Images/@(User.Identity.Name).jpg" class="rounded-circle" alt="" style="width: 35px; heigth: 35px;"></div><span class="fw-semibold">@User.Identity.Name</span>
+                            </a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="Blogs"><i class="fa-solid fa-blog me-2 text-white"></i><span class="text-white">Bloglar</span></a></li>
+                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="AddBlog"><i class="fa-solid fa-plus me-2 text-white"></i><span class="text-white">Blog Ekle</span></a></li>
+                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="Categories"><i class="fa-solid fa-list me-2 text-white"></i><span class="text-white">Kategoriler</span></a></li>
+                                <li><a class="dropdown-item" asp-controller="Admin" asp-action="AddCategory"><i class="fa-solid fa-square-plus me-2 text-white"></i><span class="text-white">Kategori Ekle</span></a></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="AccountSettings"><i class="fa-solid fa-gear me-2 text-white"></i><span class="text-white">Hesap Ayarları</span></a></li>
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket me-2 text-white"></i><span class="text-white">Çıkış Yap</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" asp-controller="Account" asp-action="Login"><span class="me-2">Giriş Yap</span><i class="fa-solid fa-right-to-bracket"></i></a>
+                    </li>
+                }
+                
+            </ul>
+            <form asp-controller="Blog" asp-action="BlogList" class="d-flex" role="search">
+                <input class="form-control me-2" name="search" type="search" placeholder="Blog ara..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass fa-beat-fade"></i></button>
+            </form>
+        </div>
+    </div>
+</nav>

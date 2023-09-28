@@ -1,0 +1,20 @@
+@model NewModel
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-text">@Model.Content.Substring(0,300)...</p>
+                <div class="my-3">
+                    <a href="@Model.Url">Haberin detayına git.</a>
+                </div>
+                <p class="card-text">Kaynak : @Model.Source</p>
+                <p class="card-text"><small class="text-body-secondary">@Model.CreatedAt tarihinde paylaşıldı.</small></p>
+            </div>
+        </div>
+    </div>
+</div>

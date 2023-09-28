@@ -1,0 +1,34 @@
+@model CategoryModel
+
+@{
+    ViewData["Title"] = "Kategori Ekle";
+}
+
+<div class="container my-5">
+    <div>
+        <div class="my-5">
+            <h1 class="text-center"><i class="fa-solid fa-plus fa-beat fa-2xl me-5"></i><span>Kategori Ekle</span></h1>
+        </div>
+    </div>
+    <div class="my-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="card bg-light mb-3" style="width: 50rem; min-width: 30px">
+                    <div class="card-header text-center text-white bg-dark"><h5>Blog Bilgileri</h5></div>
+                    <div class="card-body">
+                        <form asp-controller="Admin" asp-action="AddCategory" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label">Kategori Adı</label>
+                                <input class="form-control" asp-for="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div>
+                                <button class="btn btn-lg btn-outline-dark" type="submit">Ekle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

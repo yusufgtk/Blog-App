@@ -1,0 +1,28 @@
+@model List<BlogModel>
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        @foreach(var header in Model)
+        {
+            <div class="carousel-item @(header == Model.First()?"active":"")" data-bs-interval="3000">
+                <div class="card text-bg-dark bg-overlay">
+                    <img src="~/Images/@header.ImageUrl" class="card-img" alt="..." style="height: 400px; filter:blur(3px);">
+                    <div class="card-img-overlay p-5">
+                        <h5 class="card-title fs-1 text-white" style="text-shadow: 2px 2px #000000;">@header.Title</h5>
+                        <p class="card-text fs-4 text-truncate text-white" style="text-shadow: 2px 2px #000000;">@header.Content</p>
+                        <p class="card-text text-white" style="text-shadow: 2px 2px #000000;"><small>@header.CreatedAt</small></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+

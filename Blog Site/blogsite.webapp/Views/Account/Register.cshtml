@@ -1,0 +1,67 @@
+@model RegisterModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    var Alert=TempData["Alert"];
+}
+
+<div class="container my-5">
+    @if(@TempData["Message"]!=null)
+    {
+        <div class="alert @Alert" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card bg-dark mb-3" style="max-width: 35rem;">
+                <div class="card-header border-bottom border-white"><h5 class="text-center text-white py-3">Kayıt Bilgileri</h5></div>
+                <div class="card-body mt-3">
+                    <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" name="file" required>
+                            <label class="input-group-text" for="file">Resim Yükle</label>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label text-white">Ad</label>
+                            <input asp-for="FirstName" class="form-control" placeholder="Ad">
+                            <span asp-validation-for="FirstName" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label text-white">Soyad</label>
+                            <input asp-for="LastName" class="form-control" placeholder="Soyad">
+                            <span asp-validation-for="LastName" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="EmailAddress" class="form-label text-white">Email Adresi</label>
+                            <input asp-for="EmailAddress" class="form-control" placeholder="Soyad">
+                            <span asp-validation-for="EmailAddress" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label text-white">Kullanıcı Adı</label>
+                            <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı">
+                            <span asp-validation-for="UserName" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label text-white">Şifre</label>
+                            <input asp-for="Password" class="form-control" placeholder="Şifre">
+                            <span asp-validation-for="Password" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label text-white">Şifreyi Onayla</label>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifreyi Onayla">
+                            <span asp-validation-for="ConfirmPassword" class="text-warning float-end"></span>
+                        </div>
+                        <div class="mb-4 d-flex justify-content-evenly">
+                            <div>
+                                <button class="btn btn-outline-light" type="submit">Kayıt Ol</button>
+                            </div>
+                            <div>
+                                <a class="btn btn-outline-light" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

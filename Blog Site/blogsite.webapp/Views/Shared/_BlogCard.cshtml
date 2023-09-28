@@ -1,0 +1,19 @@
+@model BlogModel
+
+<div class="card mb-3">
+    <img src="~/Images/@Model.ImageUrl" class="card-img-top w-100" alt="..." style="height:300px">
+    <div class="card-body">
+        <h5 class="card-title fs-3 text-truncate">@Model.Title</h5>
+        <p class="card-text fs-5 text-truncate">@Model.Content</p>
+        <div class="d-flex justify-content-between">
+            <div>
+                <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-calendar-days me-2"></i><span>@Model.CreatedAt tarihinde yayınlandı.</span></small></p>
+                <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-eye me-2"></i><span>@Model.NumberOfClicks adet görüntülendi.</span></small></p>
+            </div>
+            <div>
+                <a asp-controller="Blog" asp-action="BlogDetails" asp-route-blogId="@Model.Id" class="btn btn-lg btn-outline-dark me-3 mt-3">İncele</a>
+            </div>
+        </div>
+        
+    </div>
+</div>

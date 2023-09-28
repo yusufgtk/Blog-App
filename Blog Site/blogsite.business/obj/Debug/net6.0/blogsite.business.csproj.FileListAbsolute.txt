@@ -1,0 +1,17 @@
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.business.deps.json
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.business.dll
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.business.pdb
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.data.dll
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.entity.dll
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.entity.pdb
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\bin\Debug\net6.0\blogsite.data.pdb
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.csproj.AssemblyReference.cache
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.AssemblyInfoInputs.cache
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.AssemblyInfo.cs
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.csproj.CoreCompileInputs.cache
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.csproj.CopyComplete
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.dll
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\refint\blogsite.business.dll
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\blogsite.business.pdb
+C:\Users\yusuf\OneDrive\Masaüstü\Blog Site\blogsite.business\obj\Debug\net6.0\ref\blogsite.business.dll
